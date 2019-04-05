@@ -18,6 +18,10 @@ while (( "$#" )); do
       message="$2"
       shift 2
       ;;
+    -b|--botname)
+      botname="$2"
+      shift 2
+      ;;
     --)
       shift
       break
@@ -34,5 +38,6 @@ while (( "$#" )); do
 done
 
 url="https://discordapp.com/api/webhooks/URL"
-curl -H "Content-Tyep: application/json" -X POST -d '{"content": "'$mention' '$message'"}' $url
+curl -H "Content-Tyep: application/json" -X POST -d '{"username": "'$botname'", "content": "'$mention' '$message'"}' $url
 echo ""
+
